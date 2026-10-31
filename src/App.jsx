@@ -11,25 +11,34 @@ import Footer from './Components/Footer/Footer'
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <Hero/>
-      <div className="container">
-        <Title subTitle='Our Program' title='What We Offer'/>
-      <Programs/>
-      <About/>
-      <Title subTitle='Gallery' title='Campus Photos'/>
-      <Campus/>
-      <Title subTitle='TESTIMONIALS' title='What Student Says'/>
-      <Testimonials/>
-      <Title subTitle='Contact Us' title='Get in Touch'/>
-     <Contact/>
-    <Footer/>
-   
+    <div className="app-shell">
+      <Navbar />
+      <main>
+        <Hero />
+        <div className="container page-content">
+          <section id="program">
+            <Title subTitle="Learn without limits" title="Find your path to success" />
+            <Programs />
+          </section>
+          <section id="about">
+            <About />
+          </section>
+          <section id="campus">
+            <Title subTitle="Life at Edumind" title="A campus made for possibility" />
+            <Campus />
+          </section>
+          <section id="testimonials">
+            <Title subTitle="Student stories" title="Good things happen here" />
+            <Testimonials />
+          </section>
+          <section id="contact">
+            <Title subTitle="We are here to help" title="Let’s start a conversation" />
+            <Contact />
+          </section>
+        </div>
+      </main>
+      <Footer />
     </div>
-    
-    </div>
-    
   )
 }
 

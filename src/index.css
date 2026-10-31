@@ -1,72 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #14231f;
+  background: #fbfaf7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #14231f;
+  --muted: #66736e;
+  --green: #176b52;
+  --lime: #d7f27b;
+  --cream: #fbfaf7;
+  --line: #e7e9e2;
+}
 
 * {
-  margin: 0;
-  padding:0;
   box-sizing: border-box;
-  font-family: "Noto Sans", sans-serif;
-  
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: rgb(197, 234, 246);
-  overflow-x:hidden; 
-  justify-content: center;
-  
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--cream);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-  line-height: 1;
+  text-decoration: none;
   cursor: pointer;
+}
 
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .container {
-  padding-left: 5%;
-  padding-right: 1% ;
-  
+  width: min(1200px, 100% - 64px);
+  margin-inline: auto;
 }
 
-
-
-.btn img{
-  width:20px ;
-  margin-left: 10px;
-
+.page-content {
+  padding-top: 42px;
 }
 
-.btn{
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  padding: 10px 10px;
-  font-size: medium;
-  border-radius: px;
+.page-content>section {
+  scroll-margin-top: 100px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 700;
   cursor: pointer;
-
-
+  transition: transform .2s, box-shadow .2s;
 }
 
-.btn.dark-btn{
-            background:gray;
-            color: rgb(0, 0, 0);
-            justify-content: center;
-
-
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px #14231f20;
 }
 
-@media(max-width:930px){
-  .container{
-    padding-left: 5%;
-    padding-right:5%;
+.btn img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
 
+.btn.dark-btn {
+  background: var(--green);
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 36px, 560px);
   }
-.btn{
-  padding: 14px 10px;
 
-}
+  .page-content {
+    padding-top: 16px;
+  }
 }

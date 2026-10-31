@@ -7,37 +7,24 @@ import program_icon_1 from '../../assets/program-icon-1.png'
 import program_icon_2 from '../../assets/program-icon-2.png'
 import program_icon_3 from '../../assets/program-icon-3.png'
 
+const programs = [
+  { image: program_1, icon: program_icon_1, title: 'Undergraduate degrees', alt: 'Students learning together' },
+  { image: program_3, icon: program_icon_3, title: 'Postgraduate study', alt: 'Student working on a degree' },
+  { image: program_2, icon: program_icon_2, title: 'Professional programs', alt: 'Students collaborating on a project' },
+]
 
-const Programs = () => {
-  return (
-    <div className='programs'>
-        <div className='program'>
-            <img src={program_1} alt="" />
-               <div className="caption">
-                <img src={program_icon_1} alt="" />
-                <p>Graduation Degree</p>
-               </div>
-        </div>
-
-        <div className='program'>
-        <img src={program_3} alt=""/>
+const Programs = () => (
+  <div className="programs">
+    {programs.map((program) => (
+      <article className="program" key={program.title}>
+        <img src={program.image} alt={program.alt} />
         <div className="caption">
-                <img src={program_icon_3} alt="" />
-                <p>Post Graduation Degree</p>
-               </div>
-    </div>
-
-        < div className='program'>
-            <img src={program_2} alt="" />
-            <div className="caption">
-                <img src={program_icon_2} alt="" />
-                <p>Master Degree</p>
-               </div>
+          <img src={program.icon} alt="" />
+          <p>{program.title}</p>
         </div>
-      
-          
- </div>
-  )
-}
+      </article>
+    ))}
+  </div>
+)
 
 export default Programs

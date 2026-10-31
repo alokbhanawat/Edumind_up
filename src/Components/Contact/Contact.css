@@ -1,70 +1,110 @@
-.contact{
-    margin: 80px auto;
-    max-width:90%;
-    display:flex;
-    align-content:center;
-    justify-content: space-between;
-
+.contact {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 6vw, 86px);
+    align-items: start;
+    width: 100%;
+    margin: 30px auto 110px;
+    padding: clamp(24px, 5vw, 54px);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 18px 50px #14231f08;
 }
-.contact-col{
-    flex-basis: 48%;
-    color: rgb(0, 0, 0);
+
+.contact-col {
+    min-width: 0;
+    color: var(--ink);
     font-weight: 500;
 }
 
-.contact-col h3{
-    color:#000F38 ;
-    font-weight: 500;
-    font-size: 25px;
-
+.contact-col h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font: 700 1.35rem 'Manrope', sans-serif;
 }
 
 .contact-col h3 img {
-width: 35px;
-margin-left:10px ;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
-.contact-col p{
-    max-width: 450px;
-    list-style: 0.3;
-
+.contact-col>p {
+    max-width: 420px;
+    margin: 14px 0 25px;
+    color: var(--muted);
+    line-height: 1.75;
 }
 
-.contact-col ul li{
+.contact-col ul {
+    list-style: none;
+}
+
+.contact-col ul li {
     display: flex;
     align-items: center;
-    margin: 20px 0;
-
+    gap: 13px;
+    margin: 18px 0;
+    color: #34433e;
+    font-size: .95rem;
 }
 
-.contact-col ul li img{
-     width: 25px;
-     margin-right:10px;
-    
+.contact-col ul li img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
-.contact form input, .contact form textarea
-{
+
+.contact form label {
     display: block;
-    width:100%;
-    background: #EBECFE;
-    padding:15px;
-    border:0;
-    outline:0;
-    margin-bottom:15px;
-    margin-top: 5px;
-    resize: none;
+    margin: 0 0 7px;
+    color: #33413c;
+    font-size: .87rem;
+    font-weight: 600;
 }
 
-.contact-col span{
+.contact form input,
+.contact form textarea {
     display: block;
-    margin:20px 0;
+    width: 100%;
+    min-height: 50px;
+    margin: 0 0 18px;
+    padding: 13px 15px;
+    border: 1px solid #e5e9e3;
+    border-radius: 11px;
+    outline: 0;
+    background: #fafbf8;
+    color: var(--ink);
+    transition: border-color .2s, box-shadow .2s;
 }
 
-@media(max-width:700px){
-    .contact{
-        display: block;
-    }
-    .contact-col{
-        padding: 20px;
+.contact form textarea {
+    min-height: 145px;
+    resize: vertical;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px #176b521a;
+}
+
+.contact-col>span {
+    display: block;
+    min-height: 1.4em;
+    margin-top: 14px;
+    color: var(--green);
+    font-size: .92rem;
+}
+
+@media (max-width: 760px) {
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 76px;
+        padding: 24px;
     }
 }

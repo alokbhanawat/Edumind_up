@@ -14,25 +14,30 @@ const Contact = () => {
 
     const onSubmit = async (event) => {
       event.preventDefault();
+      const form = event.target;
       setResult("Sending....");
-      const formData = new FormData(event.target);
+      const formData = new FormData(form);
   
       formData.append("access_key", "4dff659a-65b5-40f0-ae06-d3caf1bc778c");
   
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
   
-      const data = await response.json();
-  
-      if (data.success) {
-        setResult("Form Submitted Successfully");
-        event.target.reset();
-        
-      } else {
-        console.log("Error", data);
-        setResult(data.message);
+        if (response.ok && data.success) {
+          setResult("Form Submitted Successfully");
+          form.reset();
+        } else {
+          console.log("Error", data);
+          setResult(data.message || "Something went wrong. Please try again later.");
+        }
+      } catch (error) {
+        console.log("Network error", error);
+        setResult("Network error. Please check your connection and try again.");
       }
     };
 
@@ -49,7 +54,7 @@ const Contact = () => {
         </ul>
       </div>
       <div className='contact-col'>
-        <form form onSubmit ={onSubmit}>
+        <form onSubmit={onSubmit}>
             <label>
                 your name
             </label>

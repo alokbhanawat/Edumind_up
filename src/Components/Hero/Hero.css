@@ -1,49 +1,74 @@
-.Hero{
-    
-    min-width: 0vh;
-    min-height: 100vh;
-    background:linear-gradient(rgba(8,0,58,0.7),rgba(8,0,58,0.7)), url('../../assets/hero.png');
-    background-size: cover;
-    background-position: center;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
+.Hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(760px, 92vh);
+  min-height: min(760px, 92svh);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 150px max(8vw, calc((100vw - 1200px) / 2));
+  color: #fff;
+  background: #153d32 url('../../assets/hero.png') center 42% / cover no-repeat;
 }
 
-.hero-text{
-    text-align: center;
-    max-width: 800px;
-
+.Hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(10, 35, 29, .86) 0%, rgba(10, 35, 29, .57) 48%, rgba(10, 35, 29, .08) 100%);
 }
 
-.hero-text p{
-    
-    max-width: 800px;
-    margin: 10px auto;
-
-
-}
-@media(max-width:850px){
-    .hero-text h1{
-        font-size: 40px;
-    }
-}
-@media (max-width:650px){
-    .hero-text h1{
-        font-size: 30px;
-        max-width: 400px;
-        margin: auto;
-    }
-    .hero-text p {
-        font-size: 14px;
-        margin:15px auto 30px;
-
-    } 
+.hero-text {
+  max-width: 670px;
+  text-align: left;
 }
 
+.hero-text::before {
+  content: 'EDUCATION FOR WHAT’S NEXT';
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #d7f27b;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
 
-    
-    
+.hero-text h1 {
+  max-width: 650px;
+  font: 800 clamp(3rem, 6vw, 5.6rem)/1.03 'Manrope', sans-serif;
+  letter-spacing: -.055em;
+}
+
+.hero-text p {
+  max-width: 510px;
+  margin: 22px 0 30px;
+  color: #edf2e9;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.hero-text .btn {
+  padding: 16px 25px;
+}
+
+@media (max-width: 700px) {
+  .Hero {
+    min-height: 720px;
+    min-height: 88svh;
+    padding: 130px 28px 80px;
+    background-position: 58% center;
+  }
+
+  .Hero::before {
+    background: linear-gradient(90deg, rgba(10, 35, 29, .82), rgba(10, 35, 29, .35));
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.8rem, 12vw, 4.4rem);
+  }
+
+  .hero-text p {
+    font-size: .98rem;
+  }
+}
